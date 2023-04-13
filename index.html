@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>FizzBuzz</title>
+  </head>
+  <body>
+    <h1>FizzBuzz</h1>
+    <form>
+     <label for="name">Name:</label>
+  <input type="text" id="name" ><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" ><br><br>
+      <label for="phone_number">phone number:</label>
+      <input type="tel" id="phone_number" required><br>
+      <button type="button" onclick="fizzBuzz()">Submit</button>
+    </form>
+    <br>
+    <p id="output1"></p>
+    <div id="output"></div>
+    <script>
+      function fizzBuzz() {
+        const phone_number = document.getElementById("phone_number").value;
+        const num_sum = Array.from(phone_number.toString()).reduce((sum, digit) => sum + parseInt(digit), 0);
+        let output = "";
+        for (let i = 1; i <= num_sum; i++) {
+          if (i % 4 == 0 && i % 5 == 0) {
+            output += "FizzBuzz ";
+          } else if (i % 4 == 0) {
+            output += "Fizz ";
+          } else if (i % 5 == 0) {
+            output += "Buzz ";
+          } else {
+            output += i + " ";
+          }
+        }
+        const name=document.getElementById("name").value;
+        const email=document.getElementById("email").value
+        document.getElementById("output1").innerHTML = name+" "+email;
+        document.getElementById("output").innerHTML = output;
+
+      }
+    </script>
+  </body>
+</html>
